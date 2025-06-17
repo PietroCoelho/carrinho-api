@@ -12,7 +12,7 @@ class CartService
     public function calculatePayment(
         array $items,
         PaymentMethod $paymentMethod,
-        ?array $cardData = null,
+        ?array $card = null,
         ?int $installments = null
     ): array {
         $this->validateItems($items);
@@ -22,7 +22,7 @@ class CartService
         $total = $subtotal;
 
         if ($paymentMethod === PaymentMethod::CREDIT_CARD) {
-            $this->validateCardData($cardData, $installments);
+            $this->validateCard($card, $installments);
         }
 
         if ($this->isPaymentInCash($paymentMethod, $installments)) {
@@ -79,7 +79,7 @@ class CartService
         return $subtotal;
     }
 
-    private function validateCardData(array $card, ?int $installments): void
+    private function validateCard(array $card, ?int $installments): void
     {
         $cardNumber = preg_replace('/\D/', '', $card['number']);
         if (strlen($cardNumber) < 13 || strlen($cardNumber) > 19) {

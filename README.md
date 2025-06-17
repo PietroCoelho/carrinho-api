@@ -51,8 +51,6 @@ O sistema oferece as seguintes funcionalidades:
 - Cálculo de subtotal dos itens
 - Aplicação de desconto para pagamentos à vista (PIX ou cartão de crédito em 1x)
 - Cálculo de juros para parcelamento em cartão de crédito
-- Validação de dados do cartão de crédito
-- Suporte a diferentes métodos de pagamento (PIX e Cartão de Crédito)
 
 ## Exemplo de Uso
 
@@ -98,3 +96,8 @@ O sistema realiza as seguintes validações:
 - Ver logs: `docker-compose logs -f`
 - Executar composer: `docker-compose exec carrinho-app-1 composer install`
 - Acessar o shell do container: `docker exec -it carrinho-app-1 bash`
+
+## Comandos Para Executar os testes
+
+- Para executar todos os testes: `composer test-all`
+Obs:Se estiver utilizando docker, entre no container para executar o comando
